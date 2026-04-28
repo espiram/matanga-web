@@ -1,25 +1,29 @@
 <!DOCTYPE html>
-
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MATANGA — El territorio es tuyo</title>
+<title>MATANGA — Conquista cada kilómetro</title>
 <meta name="description" content="Corre. Conquista tu ciudad. Roba territorios a tus rivales. La app de running que convierte cada kilómetro en una batalla.">
 <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
   :root {
     --orange: #FF4D1C;
     --orange-dark: #CC3A10;
+    --lime: #C6FF00;
     --black: #0A0A0F;
     --surface: #12121A;
+    --surface-alt: #1E1E2E;
     --border: #2A2A3A;
     --text: #FFFFFF;
     --text-sub: #AAAAAA;
     --text-muted: #555566;
   }
+
   html { scroll-behavior: smooth; }
+
   body {
     background: var(--black);
     color: var(--text);
@@ -29,36 +33,45 @@
     overflow-x: hidden;
   }
 
+  .bungee { font-family: 'Bungee', sans-serif; }
+
 /* ── NAV ── */
 nav {
-position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 100;
 display: flex; align-items: center; justify-content: space-between;
 padding: 16px 40px;
-background: rgba(10,10,15,0.9);
+    background: rgba(10,10,15,0.85);
 backdrop-filter: blur(12px);
-border-bottom: 1px solid var(–border);
+    border-bottom: 1px solid var(--border);
 }
 .nav-logo img { height: 28px; display: block; }
-.nav-logo-text {
-font-family: ‘Bungee’, sans-serif;
-font-size: 22px; color: var(–orange);
-letter-spacing: 3px; text-decoration: none;
+.nav-logo-text{
+    font-family: 'Bungee', sans-serif;
+font-size: 22px; 
+    color: var(--orange);
+letter-spacing: 3px; 
+text-decoration: none;
 }
 .nav-links { display: flex; gap: 32px; align-items: center; }
 .nav-links a {
-color: var(–text-sub); text-decoration: none;
-font-size: 13px; letter-spacing: 1px;
-text-transform: uppercase; transition: color 0.2s;
+    color: var(--text-sub);
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: color 0.2s;
 }
-.nav-links a:hover { color: var(–orange); }
+  .nav-links a:hover { color: var(--orange); }
 .nav-cta {
-background: var(–orange) !important;
+    background: var(--orange)!important;
 color: #fff !important;
-padding: 8px 20px; border-radius: 20px;
+    padding: 8px 20px;
+    border-radius: 20px;
 font-weight: 600 !important;
 transition: background 0.2s !important;
 }
-.nav-cta:hover { background: var(–orange-dark) !important; }
+  .nav-cta:hover { background: var(--orange-dark) !important; color: #fff !important; }
 
 /* ── HERO ── */
 .hero {
@@ -67,8 +80,10 @@ display: flex; flex-direction: column;
 align-items: center; justify-content: center;
 text-align: center;
 padding: 120px 40px 80px;
-position: relative; overflow: hidden;
+    position: relative;
+    overflow: hidden;
 }
+
 .hero-bg {
 position: absolute; inset: 0;
 background:
@@ -76,19 +91,22 @@ radial-gradient(ellipse 60% 50% at 50% 40%, rgba(255,77,28,0.12) 0%, transparent
 radial-gradient(ellipse 40% 30% at 80% 80%, rgba(255,77,28,0.04) 0%, transparent 60%);
 pointer-events: none;
 }
+
+  /* Grid de puntos */
 .hero-grid {
 position: absolute; inset: 0; pointer-events: none;
-background-image: radial-gradient(rgba(255,77,28,0.12) 1px, transparent 1px);
+    background-image: radial-gradient(rgba(255,77,28,0.15) 1px, transparent 1px);
 background-size: 40px 40px;
 mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 0%, transparent 80%);
 }
+
 .hero-badge {
 display: inline-flex; align-items: center; gap: 8px;
-background: rgba(255,77,28,0.1);
+    background: rgba(255,77,28,0.12);
 border: 1px solid rgba(255,77,28,0.3);
 border-radius: 20px; padding: 6px 16px;
 font-size: 12px; letter-spacing: 2px;
-color: var(–orange); text-transform: uppercase;
+color: var(--orange); text-transform: uppercase;
 margin-bottom: 28px; position: relative;
 }
 .hero-logo {
@@ -97,91 +115,91 @@ margin-bottom: 12px;
 }
 .hero-logo img { height: 100px; display: block; margin: 0 auto; }
 .hero-logo-text {
-font-family: ‘Bungee’, sans-serif;
+font-family: 'Bungee', sans-serif;
 font-size: clamp(72px, 14vw, 130px);
 line-height: 0.9; letter-spacing: 4px;
-color: var(–text); position: relative;
+ color: var(--text); position: relative;
 }
-.hero-logo-text span { color: var(–orange); }
+.hero-logo-text span { color: var(--orange); }
 .hero-tagline {
-font-family: ‘Bungee’, sans-serif;
+font-family: 'Bungee', sans-serif;
 font-size: clamp(13px, 1.8vw, 18px);
-letter-spacing: 4px; color: var(–text-sub);
+letter-spacing: 4px; color: var(--text-sub);
 margin-bottom: 24px; position: relative;
 }
 .hero-desc {
-font-size: 17px; color: var(–text-sub);
+font-size: 17px; color: var(--text-sub);
 max-width: 480px; margin: 0 auto 48px;
 position: relative; line-height: 1.8;
 }
-.hero-desc strong { color: var(–text); }
+.hero-desc strong { color: var(--text); }
 .hero-btns {
 display: flex; gap: 16px; justify-content: center;
 flex-wrap: wrap; position: relative;
 }
 .btn-primary {
 display: inline-flex; align-items: center; gap: 8px;
-background: var(–orange); color: #fff;
-font-family: ‘Bungee’, sans-serif;
+background: var(--orange); color: #fff;
+font-family: 'Bungee', sans-serif;
 font-size: 15px; letter-spacing: 1px;
 padding: 16px 32px; border-radius: 14px;
 text-decoration: none;
 transition: background 0.2s, transform 0.15s;
 }
-.btn-primary:hover { background: var(–orange-dark); transform: translateY(-2px); }
+.btn-primary:hover { background: var(--orange-dark); transform: translateY(-2px); }
 .btn-secondary {
 display: inline-flex; align-items: center; gap: 8px;
-background: transparent; color: var(–text);
-font-family: ‘Bungee’, sans-serif;
+background: transparent; color: var(--text);
+font-family: 'Bungee', sans-serif;
 font-size: 15px; letter-spacing: 1px;
 padding: 16px 32px; border-radius: 14px;
-border: 1px solid var(–border); text-decoration: none;
+border: 1px solid var(--border); text-decoration: none;
 transition: border-color 0.2s, transform 0.15s;
 }
-.btn-secondary:hover { border-color: var(–orange); transform: translateY(-2px); }
+.btn-secondary:hover { border-color: var(--orange); transform: translateY(-2px); }
 .btn-dark {
 background: #1a1a2a !important;
-border: 1px solid var(–border) !important;
+border: 1px solid var(--border) !important;
 }
 
 /* ── STATS BAR ── */
 .stats-bar {
-background: var(–surface);
-border-top: 1px solid var(–border);
-border-bottom: 1px solid var(–border);
+background: var(--surface);
+border-top: 1px solid var(--border);
+border-bottom: 1px solid var(--border);
 padding: 32px 40px;
 display: flex; justify-content: center; gap: 80px; flex-wrap: wrap;
 }
 .stat-item { text-align: center; }
 .stat-num {
-font-family: ‘Bungee’, sans-serif;
-font-size: 36px; color: var(–orange);
+font-family: 'Bungee', sans-serif;
+font-size: 36px; color: var(--orange);
 letter-spacing: 2px; display: block;
 }
 .stat-label {
-font-size: 11px; color: var(–text-muted);
+font-size: 11px; color: var(--text-muted);
 letter-spacing: 2px; text-transform: uppercase; margin-top: 4px;
 }
 
 /* ── SECCIONES ── */
 section { padding: 100px 40px; max-width: 1100px; margin: 0 auto; }
 .section-label {
-font-family: ‘Bungee’, sans-serif;
+font-family: 'Bungee', sans-serif;
 font-size: 11px; letter-spacing: 4px;
-color: var(–orange); text-transform: uppercase; margin-bottom: 16px;
+color: var(--orange); text-transform: uppercase; margin-bottom: 16px;
 }
 .section-title {
-font-family: ‘Bungee’, sans-serif;
+font-family: 'Bungee', sans-serif;
 font-size: clamp(32px, 5vw, 52px);
 letter-spacing: 2px; line-height: 1.1; margin-bottom: 20px;
 }
 .section-sub {
-font-size: 16px; color: var(–text-sub);
+font-size: 16px; color: var(--text-sub);
 max-width: 540px; line-height: 1.7; margin-bottom: 60px;
 }
 .orange-line {
 width: 60px; height: 3px;
-background: var(–orange); border-radius: 2px; margin-bottom: 40px;
+background: var(--orange); border-radius: 2px; margin-bottom: 40px;
 }
 
 /* ── STEPS ── */
@@ -191,35 +209,35 @@ grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
 gap: 24px;
 }
 .step-card {
-background: var(–surface); border: 1px solid var(–border);
+background: var(--surface); border: 1px solid var(--border);
 border-radius: 20px; padding: 32px 28px;
 position: relative; overflow: hidden;
 transition: border-color 0.2s, transform 0.2s;
 }
 .step-card:hover { border-color: rgba(255,77,28,0.4); transform: translateY(-4px); }
 .step-card::before {
-content: ‘’; position: absolute; top: 0; left: 0; right: 0;
-height: 3px; background: var(–orange); opacity: 0; transition: opacity 0.2s;
+content: ''; position: absolute; top: 0; left: 0; right: 0;
+height: 3px; background: var(--orange); opacity: 0; transition: opacity 0.2s;
 }
 .step-card:hover::before { opacity: 1; }
 .step-num {
-font-family: ‘Bungee’, sans-serif; font-size: 48px;
+font-family: 'Bungee', sans-serif; font-size: 48px;
 color: rgba(255,77,28,0.12); line-height: 1;
 margin-bottom: 16px; letter-spacing: 2px;
 }
 .step-emoji { font-size: 32px; margin-bottom: 16px; display: block; }
 .step-title {
-font-family: ‘Bungee’, sans-serif; font-size: 18px;
-letter-spacing: 1px; margin-bottom: 10px; color: var(–text);
+font-family: 'Bungee', sans-serif; font-size: 18px;
+letter-spacing: 1px; margin-bottom: 10px; color: var(--text);
 }
-.step-desc { font-size: 14px; color: var(–text-sub); line-height: 1.6; }
+.step-desc { font-size: 14px; color: var(--text-sub); line-height: 1.6; }
 
 /* ── NIVELES ── */
 .niveles-section {
 padding: 100px 40px;
-background: var(–surface);
-border-top: 1px solid var(–border);
-border-bottom: 1px solid var(–border);
+background: var(--surface);
+border-top: 1px solid var(--border);
+border-bottom: 1px solid var(--border);
 }
 .niveles-inner { max-width: 1100px; margin: 0 auto; }
 .niveles-grid {
@@ -228,17 +246,17 @@ grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
 gap: 16px;
 }
 .nivel-card {
-background: var(–black); border: 1px solid var(–border);
+background: var(--black); border: 1px solid var(--border);
 border-radius: 16px; padding: 24px 16px; text-align: center;
 transition: transform 0.2s, border-color 0.2s;
 }
 .nivel-card:hover { transform: translateY(-4px); }
 .nivel-emoji-big { font-size: 36px; display: block; margin-bottom: 10px; }
 .nivel-nombre {
-font-family: ‘Bungee’, sans-serif; font-size: 14px;
+font-family: 'Bungee', sans-serif; font-size: 14px;
 letter-spacing: 1px; margin-bottom: 6px;
 }
-.nivel-rango { font-size: 11px; color: var(–text-muted); letter-spacing: 1px; }
+.nivel-rango { font-size: 11px; color: var(--text-muted); letter-spacing: 1px; }
 
 /* ── FEATURES ── */
 .features-grid {
@@ -247,17 +265,17 @@ grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 gap: 24px;
 }
 .feature-card {
-background: var(–surface); border: 1px solid var(–border);
+background: var(--surface); border: 1px solid var(--border);
 border-radius: 20px; padding: 32px;
 transition: border-color 0.2s;
 }
 .feature-card:hover { border-color: rgba(255,77,28,0.3); }
 .feature-icon { font-size: 28px; margin-bottom: 16px; display: block; }
 .feature-title {
-font-family: ‘Bungee’, sans-serif; font-size: 16px;
-letter-spacing: 1px; margin-bottom: 10px; color: var(–orange);
+font-family: 'Bungee', sans-serif; font-size: 16px;
+letter-spacing: 1px; margin-bottom: 10px; color: var(--orange);
 }
-.feature-desc { font-size: 14px; color: var(–text-sub); line-height: 1.6; }
+.feature-desc { font-size: 14px; color: var(--text-sub); line-height: 1.6; }
 
 /* ── CTA ── */
 .cta-section {
@@ -265,19 +283,19 @@ padding: 120px 40px; text-align: center;
 position: relative; overflow: hidden;
 }
 .cta-section::before {
-content: ‘’; position: absolute; inset: 0;
+content: ''; position: absolute; inset: 0;
 background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(255,77,28,0.1) 0%, transparent 70%);
 pointer-events: none;
 }
 .cta-title {
-font-family: ‘Bungee’, sans-serif;
+font-family: 'Bungee', sans-serif;
 font-size: clamp(40px, 7vw, 80px);
 letter-spacing: 4px; line-height: 1;
 margin-bottom: 20px; position: relative;
 }
-.cta-title span { color: var(–orange); }
+.cta-title span { color: var(--orange); }
 .cta-sub {
-font-size: 16px; color: var(–text-sub);
+font-size: 16px; color: var(--text-sub);
 margin-bottom: 48px; position: relative;
 }
 .cta-btns {
@@ -287,23 +305,23 @@ flex-wrap: wrap; position: relative;
 
 /* ── FOOTER ── */
 footer {
-background: var(–surface); border-top: 1px solid var(–border);
+background: var(--surface); border-top: 1px solid var(--border);
 padding: 40px;
 display: flex; align-items: center; justify-content: space-between;
 flex-wrap: wrap; gap: 16px;
 }
 .footer-logo img { height: 24px; }
 .footer-logo-text {
-font-family: ‘Bungee’, sans-serif; font-size: 20px;
-color: var(–orange); letter-spacing: 3px;
+font-family: 'Bungee', sans-serif; font-size: 20px;
+color: var(--orange); letter-spacing: 3px;
 }
 .footer-links { display: flex; gap: 24px; }
 .footer-links a {
-color: var(–text-muted); font-size: 13px;
+color: var(--text-muted); font-size: 13px;
 text-decoration: none; transition: color 0.2s;
 }
-.footer-links a:hover { color: var(–text-sub); }
-.footer-copy { color: var(–text-muted); font-size: 12px; }
+.footer-links a:hover { color: var(--text-sub); }
+.footer-copy { color: var(--text-muted); font-size: 12px; }
 
 @keyframes fadeUp {
 from { opacity: 0; transform: translateY(24px); }
@@ -324,8 +342,8 @@ to   { opacity: 1; transform: translateY(0); }
 <!-- NAV -->
 
 <nav>
-  <!-- Si tienes el PNG: <a class="nav-logo" href="#"><img src="matanga-logo.png" alt="MATANGA"></a> -->
-  <a class="nav-logo-text" href="#">MATANGA</a>
+  <a class="nav-logo" href="#"><img src="matanga-logo.png" alt="MATANGA"></a>
+  <!--<a class="nav-logo-text" href="#">MATANGA</a>-->
   <div class="nav-links">
     <a href="#como-funciona">Cómo funciona</a>
     <a href="#niveles">Niveles</a>
@@ -335,7 +353,6 @@ to   { opacity: 1; transform: translateY(0); }
 </nav>
 
 <!-- HERO -->
-
 <div class="hero">
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
@@ -357,14 +374,19 @@ to   { opacity: 1; transform: translateY(0); }
   </p>
 
   <div class="hero-btns">
-    <a href="#descargar" class="btn-primary">🍎 App Store</a>
-    <a href="#descargar" class="btn-primary btn-dark">🤖 Google Play</a>
-    <a href="#como-funciona" class="btn-secondary">Cómo funciona →</a>
+    <a href="#descargar" class="btn-primary">
+      🍎 App Store
+    </a>
+    <a href="#descargar" class="btn-primary" style="background: #1a1a2a; border: 1px solid var(--border);">
+      🤖 Google Play
+    </a>
+    <a href="#como-funciona" class="btn-secondary">
+      Cómo funciona →
+    </a>
   </div>
 </div>
 
 <!-- STATS -->
-
 <div class="stats-bar">
   <div class="stat-item">
     <span class="stat-num">100m</span>
@@ -385,11 +407,10 @@ to   { opacity: 1; transform: translateY(0); }
 </div>
 
 <!-- CÓMO FUNCIONA -->
-
 <section id="como-funciona">
   <div class="section-label">🗺 Mecánica</div>
   <h2 class="section-title">El territorio<br>es de quien lo corre</h2>
-  <p class="section-sub">Simple y brutal. Sal a correr, pisa el territorio, conquístalo. Pero cuidado — alguien puede robártelo mañana.</p>
+  <p class="section-sub">Sal a correr, pisa el territorio, conquístalo. Pero cuidado — alguien puede robártelo mañana.</p>
   <div class="orange-line"></div>
   <div class="steps">
     <div class="step-card">
@@ -503,22 +524,25 @@ to   { opacity: 1; transform: translateY(0); }
   </div>
 </section>
 
-<!-- CTA -->
-
+<!-- CTA FINAL -->
 <div class="cta-section" id="descargar">
   <h2 class="cta-title">¿Listo para<br><span>conquistar?</span></h2>
   <p class="cta-sub">Descarga gratis. Sal a correr. El mapa te espera.</p>
   <div class="cta-btns">
-    <a href="#" class="btn-primary" style="font-size:16px; padding:18px 40px;">🍎 Descargar en App Store</a>
-    <a href="#" class="btn-primary btn-dark" style="font-size:16px; padding:18px 40px;">🤖 Descargar en Google Play</a>
+    <a href="#" class="btn-primary" style="font-size: 16px; padding: 18px 40px;">
+      🍎 Descargar en App Store
+    </a>
+    <a href="#" class="btn-primary" style="font-size: 16px; padding: 18px 40px; background: #1a1a2a; border: 1px solid #2a2a3a;">
+      🤖 Descargar en Google Play
+    </a>
   </div>
 </div>
 
 <!-- FOOTER -->
 
 <footer>
-  <!-- Si tienes el PNG: <div class="footer-logo"><img src="matanga-logo.png" alt="MATANGA"></div> -->
-  <div class="footer-logo-text">MATANGA</div>
+  <div class="footer-logo"><img src="matanga-logo.png" alt="MATANGA"></div> -->
+  <!--div class="footer-logo-text">MATANGA</div> -->
   <div class="footer-links">
     <a href="privacy-policy.html">Privacidad</a>
     <a href="#">Términos</a>
