@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eliminar cuenta — MATANGA</title>
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --orange: #FF4D1C;
+    --black: #0A0A0F;
+    --surface: #12121A;
+    --border: #2A2A3A;
+    --text: #FFFFFF;
+    --text-sub: #AAAAAA;
+  }
+  body {
+    background: var(--black);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  nav {
+    background: rgba(10,10,15,0.95);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 32px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .nav-logo {
+    font-family: 'Bungee', sans-serif;
+    font-size: 20px; color: var(--orange);
+    letter-spacing: 3px; text-decoration: none;
+  }
+  .nav-sep { color: var(--border); }
+  .nav-page { color: var(--text-sub); font-size: 13px; }
+
+  .container {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 60px 32px 100px;
+    flex: 1;
+  }
+
+  .header {
+    margin-bottom: 40px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--border);
+  }
+  .label {
+    font-size: 11px; letter-spacing: 3px;
+    color: var(--orange); text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .title {
+    font-family: 'Bungee', sans-serif;
+    font-size: 32px; letter-spacing: 2px;
+    margin-bottom: 12px;
+  }
+  .subtitle {
+    color: var(--text-sub); font-size: 15px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px 32px;
+    margin-bottom: 24px;
+  }
+  .card-title {
+    font-family: 'Bungee', sans-serif;
+    font-size: 16px; letter-spacing: 1px;
+    color: var(--orange); margin-bottom: 16px;
+  }
+  .card p { color: var(--text-sub); font-size: 15px; margin-bottom: 12px; }
+  .card p:last-child { margin-bottom: 0; }
+
+  .steps {
+    list-style: none;
+    counter-reset: steps;
+  }
+  .steps li {
+    counter-increment: steps;
+    display: flex; gap: 16px;
+    align-items: flex-start;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-sub);
+    font-size: 15px;
+  }
+  .steps li:last-child { border-bottom: none; }
+  .steps li::before {
+    content: counter(steps);
+    min-width: 28px; height: 28px;
+    background: rgba(255,77,28,0.15);
+    border: 1px solid rgba(255,77,28,0.3);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 700;
+    color: var(--orange); flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .warning {
+    background: rgba(255,77,28,0.05);
+    border: 1px solid rgba(255,77,28,0.2);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+  }
+  .warning p { color: var(--text-sub); font-size: 14px; margin: 0; }
+  .warning strong { color: var(--text); }
+
+  .contact-card {
+    background: var(--surface);
+    border: 1px solid rgba(255,77,28,0.25);
+    border-radius: 16px;
+    padding: 28px 32px;
+  }
+  .contact-card .card-title { margin-bottom: 12px; }
+  .contact-card p { color: var(--text-sub); font-size: 15px; margin-bottom: 16px; }
+  .btn-email {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--orange);
+    color: #fff;
+    font-family: 'Bungee', sans-serif;
+    font-size: 14px; letter-spacing: 1px;
+    padding: 12px 24px; border-radius: 12px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .btn-email:hover { background: #CC3A10; }
+
+  footer {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 28px 32px;
+    display: flex; align-items: center;
+    justify-content: space-between; flex-wrap: wrap; gap: 12px;
+  }
+  .footer-logo {
+    font-family: 'Bungee', sans-serif;
+    font-size: 18px; color: var(--orange); letter-spacing: 3px;
+  }
+  .footer-copy { color: #2a2a3a; font-size: 12px; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/">MATANGA</a>
+  <span class="nav-sep">›</span>
+  <span class="nav-page">Eliminar cuenta</span>
+</nav>
+
+<div class="container">
+
+  <div class="header">
+    <div class="label">Gestión de cuenta</div>
+    <div class="title">Eliminar tu cuenta</div>
+    <p class="subtitle">
+      Puedes eliminar tu cuenta de Matanga en cualquier momento, directamente desde la app o enviándonos un correo.
+    </p>
+  </div>
+
+  <!-- Opción 1 — desde la app -->
+  <div class="card">
+    <div class="card-title">📱 OPCIÓN 1 — DESDE LA APP</div>
+    <p>La forma más rápida es eliminar tu cuenta directamente desde la aplicación:</p>
+    <ol class="steps">
+      <li>Abre la app <strong>Matanga</strong> en tu dispositivo</li>
+      <li>Toca el ícono de <strong>Perfil</strong> en la barra inferior</li>
+      <li>Toca el ícono de <strong>Ajustes ⚙️</strong> en la esquina superior derecha</li>
+      <li>Baja hasta la sección <strong>CUENTA</strong></li>
+      <li>Toca <strong>"Eliminar cuenta"</strong></li>
+      <li>Confirma la eliminación en los dos diálogos que aparecen</li>
+    </ol>
+  </div>
+
+  <!-- Advertencia -->
+  <div class="warning">
+    <p>
+      ⚠️ <strong>Esta acción es permanente.</strong> Al eliminar tu cuenta se borrarán todos tus datos, territorios conquistados, historial de actividades y progreso. No es posible recuperarlos una vez eliminados.
+    </p>
+  </div>
+
+  <!-- Opción 2 — por email -->
+  <div class="contact-card">
+    <div class="card-title">✉️ OPCIÓN 2 — POR CORREO</div>
+    <p>
+      Si no tienes acceso a la app o prefieres hacerlo por correo, escríbenos y procesaremos tu solicitud en un plazo máximo de <strong>7 días hábiles</strong>.
+    </p>
+    <a class="btn-email" href="mailto:hola@matanga.app?subject=Solicitud%20de%20eliminación%20de%20cuenta&body=Hola%2C%20quiero%20eliminar%20mi%20cuenta%20de%20Matanga.%0A%0ANombre%20de%20usuario%3A%20%0ACorreo%20registrado%3A%20">
+      📧 Enviar solicitud por correo
+    </a>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-logo">MATANGA</div>
+  <div class="footer-copy">© 2025 Matanga. Todos los derechos reservados.</div>
+</footer>
+
+</body>
+</html>
