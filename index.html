@@ -187,6 +187,11 @@ border: 1px solid var(--border); text-decoration: none;
 transition: border-color 0.2s, transform 0.15s;
 }
 .btn-secondary:hover { border-color: var(--orange); transform: translateY(-2px); }
+ .store-icon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
 
 /* ── STATS BAR ─────────────────────────────────────── */
 .stats-bar {
@@ -414,8 +419,15 @@ footer { flex-direction: column; align-items: flex-start; }
   </p>
 
   <div class="hero-btns">
-    <a href="#descargar" class="btn-primary">🍎 App Store</a>
-    <a href="#descargar" class="btn-primary btn-dark">🤖 Google Play</a>
+<a href="#descargar" class="btn-primary">
+    <img src="images/apple-logo.png" alt="Apple" class="store-icon">
+    App Store
+</a>
+
+<a href="#descargar" class="btn-primary btn-dark">
+    <img src="images/google-play.png" alt="Google Play" class="store-icon">
+    Google Play
+</a>
     <a href="#como-funciona" class="btn-secondary">Cómo funciona →</a>
   </div>
 </div>
