@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Únete al reto — Matanga</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #0a0a0f;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .card {
+      background: #12121a;
+      border: 1px solid #1e1e2e;
+      border-radius: 20px;
+      padding: 32px 24px;
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+    }
+    .logo {
+      font-family: 'Bungee', sans-serif;
+      font-size: 28px;
+      color: #FF4D1C;
+      letter-spacing: 4px;
+      margin-bottom: 24px;
+    }
+    .titulo {
+      font-family: 'Bungee', sans-serif;
+      font-size: 20px;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+    .sub {
+      color: #5a5a7a;
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+    .codigo {
+      font-family: 'Bungee', sans-serif;
+      font-size: 28px;
+      color: #FF4D1C;
+      letter-spacing: 6px;
+      margin: 20px 0;
+      background: rgba(255,77,28,0.1);
+      border: 1px solid rgba(255,77,28,0.3);
+      border-radius: 12px;
+      padding: 12px;
+    }
+    .btn {
+      display: block;
+      background: #FF4D1C;
+      color: #fff;
+      font-family: 'Bungee', sans-serif;
+      font-size: 16px;
+      letter-spacing: 2px;
+      padding: 16px;
+      border-radius: 14px;
+      text-decoration: none;
+      margin-bottom: 12px;
+    }
+    .hint {
+      color: #5a5a7a;
+      font-size: 12px;
+      margin-top: 16px;
+      line-height: 1.6;
+    }
+    .codigo-manual {
+      display: none;
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid #1e1e2e;
+    }
+    .codigo-manual.visible { display: block; }
+  </style>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const codigo = params.get('codigo') || '';
+
+    window.onload = () => {
+      if (codigo) {
+        document.getElementById('codigo-display').textContent = codigo;
+        // Intentar abrir la app
+        window.location.href = `matanga://retos?codigo=${codigo}`;
+        // Mostrar el código manual después de 2 segundos si no abrió
+        setTimeout(() => {
+          document.getElementById('codigo-fallback').classList.add('visible');
+        }, 2000);
+      }
+    };
+  </script>
+</head>
+<body>
+  <div class="card">
+    <div class="logo">MATANGA</div>
+    <div class="titulo">¡TE INVITARON A UN RETO!</div>
+    <p class="sub">Abriendo Matanga...</p>
+
+    <div class="codigo" id="codigo-display">------</div>
+
+    <a class="btn" id="btn-abrir" href="#">🐒 ABRIR EN MATANGA</a>
+
+    <div class="codigo-manual" id="codigo-fallback">
+      <p class="sub">Si la app no abrió automáticamente, copia el código y úsalo en la sección de Retos.</p>
+      <p class="hint">Asegúrate de tener Matanga instalado.</p>
+    </div>
+  </div>
+
+  <script>
+    // Actualizar el href del botón con el código
+    document.getElementById('btn-abrir').href = `matanga://retos?codigo=${codigo}`;
+  </script>
+</body>
+</html>
